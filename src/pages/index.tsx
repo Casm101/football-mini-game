@@ -1,20 +1,42 @@
-import Head from "next/head";
-import Image from "next/image";
-import localFont from "next/font/local";
-import styles from "@/styles/Home.module.css";
+/* eslint-disable @next/next/no-img-element */
+import Head from 'next/head';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { Background, Button, Icon, Navigation } from '../components';
+
+const navLinks = [
+  {
+    href: '/friends',
+    text: 'friends',
+    icon: <Icon name="friends" />
+  },
+  {
+    href: '/facilities',
+    text: 'facilities',
+    icon: <Icon name="facilities" />
+  },
+  {
+    href: '/team',
+    text: 'team',
+    icon: <Icon name="friends" />
+  },
+  {
+    href: '/collection',
+    text: 'collection',
+    icon: <Icon name="collection" />
+  },
+  {
+    href: '/market',
+    text: 'market',
+    icon: <Icon name="market" />
+  }
+];
 
 export default function Home() {
+  const router = useRouter();
+  const goToQuickMatch = () => router.push('/quick-match');
+
   return (
     <>
       <Head>
@@ -23,95 +45,53 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <ol>
-            <li>
-              Get started by editing <code>src/pages/index.tsx</code>.
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
 
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className={styles.logo}
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
-            </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
-            </a>
+      {/* Main menu screen */}
+
+      {/* Background component */}
+      <Background image="/backgrounds/stadium-screen.svg" blur />
+
+      {/* Overlay component */}
+      <div
+        className="overlay"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-evenly',
+          zIndex: 1000,
+          position: 'absolute',
+          width: '100%',
+          height: '100%'
+        }}
+      >
+        <div>
+          <img src="/mocks/stadium.png" alt="field" height={200} />
+        </div>
+        <div className="overlay-centre">
+          <p className="title">
+            <Image src="/text/zokker.png" alt="Zokker logo" height={151} width={710} />
+          </p>
+          <div className="button-group">
+            <Button>Leagues</Button>
+            <Button size="large" onClick={goToQuickMatch}>
+              Quick Match
+            </Button>
+            <Button>Training</Button>
           </div>
-        </main>
-        <footer className={styles.footer}>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/file.svg"
-              alt="File icon"
-              width={16}
-              height={16}
-            />
-            Learn
-          </a>
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/window.svg"
-              alt="Window icon"
-              width={16}
-              height={16}
-            />
-            Examples
-          </a>
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/globe.svg"
-              alt="Globe icon"
-              width={16}
-              height={16}
-            />
-            Go to nextjs.org →
-          </a>
-        </footer>
+        </div>
+        <div>
+          <img src="/mocks/team-panel.png" alt="team" height={400} />
+        </div>
+      </div>
+
+      {/* Navigation component */}
+      <Navigation links={navLinks} />
+
+      {/* Connect Button */}
+      <div className="connect-button">
+        <Button size="small" isSecondary isRounded>
+          Connect
+        </Button>
       </div>
     </>
   );
