@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface GameViewerProps {
   feed: string;
@@ -20,9 +20,9 @@ export const GameViewer: React.FC<GameViewerProps> = ({ feed, duration }) => {
   }, []);
 
   return (
-    <div className="gameviewer-styled">
+    <div className={styles.gameviewerStyled}>
       <iframe src={feed} />
-      <p className="game-time">{timeRemaining / 1000}:00</p>
+      <p className={styles.gameTime}>{timeRemaining / 1000}:00</p>
     </div>
   );
 };

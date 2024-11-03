@@ -17,17 +17,14 @@ export const Button: React.FC<ButtonProps> = ({
   isRounded = false,
   isSecondary = false
 }) => {
-  const roundedClass = isRounded ? 'rounded' : '';
-  const secondaryClass = isSecondary ? 'secondary' : '';
+  const roundedClass = isRounded ? styles.rounded : '';
+  const secondaryClass = isSecondary ? styles.secondary : '';
 
   return (
     <button
-      className={[
-        styles.buttonStyled,
-        `--${size}`,
-        `--${roundedClass}`,
-        `--${secondaryClass}`
-      ].join(' ')}
+      className={[styles.buttonStyled, styles[size], roundedClass, secondaryClass].join(
+        ' '
+      )}
       onClick={onClick}
     >
       {children}

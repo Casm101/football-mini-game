@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface TimerProps {
   duration: number;
@@ -23,16 +24,14 @@ export const Timer: React.FC<TimerProps> = ({ duration, runOnEnd }) => {
     }, 1000);
 
     return () => clearInterval(intervalId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (timeLeft <= 0 && runOnEnd) runOnEnd();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLeft]);
 
   return (
-    <div className="timer-styled">
+    <div className={styles.timerStyled}>
       <p>{timeLeft}</p>
     </div>
   );

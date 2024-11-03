@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { ProgressBar } from '../Progressbar';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface FormationProps {
   name: string;
@@ -23,29 +23,29 @@ export const FormationCard: React.FC<FormationProps> = ({
   isSelected,
   onClickCallback
 }) => {
-  const selectedClass = isSelected ? '--selected' : '';
-  const clickableClass = onClickCallback ? '--clickable' : '';
+  const selectedClass = isSelected ? styles.selected : '';
+  const clickableClass = onClickCallback ? styles.clickable : '';
 
   return (
     <div
-      className={['formation-styled', selectedClass, clickableClass].join(' ').trim()}
+      className={[styles.formationStyled, selectedClass, clickableClass].join(' ').trim()}
       onClick={onClickCallback}
     >
-      <p className="formation-name">{name}</p>
-      <div className="formation-visual">
+      <p className={styles.formationName}>{name}</p>
+      <div className={styles.formationVisual}>
         <Image src={image} alt={`${name} formation`} width={250} height={350} />
       </div>
-      <div className="formation-stats">
-        <div className="stat">
-          <p className="stat-name">ATK</p>
+      <div className={styles.formationStats}>
+        <div className={styles.stat}>
+          <p className={styles.statName}>ATK</p>
           <ProgressBar percentage={attack} isHightlighted={isSelected} />
         </div>
-        <div className="stat">
-          <p className="stat-name">DEF</p>
+        <div className={styles.stat}>
+          <p className={styles.statName}>DEF</p>
           <ProgressBar percentage={defence} isHightlighted={isSelected} />
         </div>
-        <div className="stat">
-          <p className="stat-name">MID</p>
+        <div className={styles.stat}>
+          <p className={styles.statName}>MID</p>
           <ProgressBar percentage={middle} isHightlighted={isSelected} />
         </div>
       </div>

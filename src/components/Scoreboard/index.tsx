@@ -1,7 +1,7 @@
 import React from 'react';
-
-import './styles.scss';
 import Image from 'next/image';
+
+import styles from './styles.module.scss';
 
 interface ScoreBoardProps {
   homeLogo: string;
@@ -17,7 +17,7 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
   awayScore = 0
 }) => {
   return (
-    <div className="scoreboard-styled">
+    <div className={styles.scoreboardStyled}>
       <Image
         src={homeLogo}
         alt="Home Logo"
@@ -25,7 +25,7 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
         width={100}
         height={100}
       />
-      <p className="scores">
+      <p className={styles.scores}>
         {homeScore} - {awayScore}
       </p>
       <Image

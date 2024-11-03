@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface Link {
   href: string;
@@ -15,7 +15,7 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ links }) => {
   return (
-    <nav className="navigation-styled">
+    <nav className={styles.navigationStyled}>
       {links.map(link => (
         <Link href={link.href} key={link.href}>
           {link.icon}

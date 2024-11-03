@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const animations = {
   NW: 'https://cdn.lottielab.com/l/BL3naVsTZFjvoy.html',
@@ -17,7 +17,7 @@ interface ShootoutAnimationProps {
 
 export const ShootoutAnimation: React.FC<ShootoutAnimationProps> = ({ position }) => {
   return (
-    <div className="shootoutanimation-styled">
+    <div className={styles.shootoutanimationStyled}>
       <iframe src={animations[position]} />
     </div>
   );

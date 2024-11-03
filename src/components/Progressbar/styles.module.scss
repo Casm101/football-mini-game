@@ -1,4 +1,4 @@
-.progressbar-styled {
+.progressbarStyled {
   height: 1.5rem;
   width: 6rem;
 
@@ -13,7 +13,7 @@
     background: #FFF;
   }
 
-  &.--highlighted {
+  &.highlighted {
     border-color: #FFD477;
 
     .progress {

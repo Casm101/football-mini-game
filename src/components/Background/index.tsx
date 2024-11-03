@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface BackgroundProps {
   image: string;
@@ -17,7 +17,7 @@ export const Background: React.FC<BackgroundProps> = ({ image, blur }) => {
       layout="fill"
       objectFit="cover"
       style={{ filter: blurStyle }}
-      className="background-styled"
+      className={styles.backgroundStyled}
     />
   );
 };

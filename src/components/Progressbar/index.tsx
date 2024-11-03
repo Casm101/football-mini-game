@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface ProgressBarProps {
   percentage: number;
@@ -11,11 +11,11 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   percentage,
   isHightlighted
 }) => {
-  const highlightedClass = isHightlighted ? '--highlighted' : '';
+  const highlightedClass = isHightlighted ? styles.highlighted : '';
 
   return (
-    <div className={['progressbar-styled', highlightedClass].join(' ').trim()}>
-      <div style={{ width: `${percentage}%` }} className="progress" />
+    <div className={[styles.progressbarStyled, highlightedClass].join(' ').trim()}>
+      <div style={{ width: `${percentage}%` }} className={styles.progress} />
     </div>
   );
 };

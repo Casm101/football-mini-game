@@ -18,24 +18,24 @@
   z-index: 1000;
   cursor: pointer;
 
-  &.--small {
+  &.small {
     font-size: 1.25rem;
     padding: .5rem 1rem;
   }
 
-  &.--large {
+  &.large {
     font-size: 40px;
 
     padding: 24px 24px;
     padding-right: 30px;
   }
 
-  &.--rounded {
+  &.rounded {
     border-radius: 3rem;
     padding: 10px 24px;
   }
 
-  &.--secondary {
+  &.secondary {
     font-family: "Rajdhani";
     text-transform: uppercase;
 

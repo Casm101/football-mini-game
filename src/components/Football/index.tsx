@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface FootballProps {
   isSelected: boolean;
@@ -12,7 +12,7 @@ export const Football: React.FC<FootballProps> = ({ isSelected, selectBall }) =>
   const selectedClass = isSelected ? '--selected' : '';
 
   return (
-    <div className="football-styled">
+    <div className={styles.footballStyled}>
       <Image
         src={`/shootout/football${selectedClass}.svg`}
         alt="Football selector icon"

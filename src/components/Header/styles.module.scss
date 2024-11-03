@@ -1,4 +1,4 @@
-.header-styled {
+.headerStyled {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,7 +15,7 @@
 
   z-index: 1000;
 
-  .header-back {
+  .headerBack {
     background: none;
     border: none;
 
@@ -26,19 +26,19 @@
       color: #FFF;
     }
 
-    &.--hidden {
+    &.hidden {
       visibility: hidden;
     }
   }
 
-  .header-title {
+  .headerTitle {
     font-size: 3rem;
     text-align: center;
   }
 
-  .header-timer {
+  .headerTimer {
 
-    &.--hidden {
+    &.hidden {
       visibility: hidden;
     }
   }

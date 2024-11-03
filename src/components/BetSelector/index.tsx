@@ -1,7 +1,7 @@
 import React from 'react';
-
-import './styles.scss';
 import Image from 'next/image';
+
+import styles from './styles.module.scss';
 
 interface BetSelectorProps {
   betOptions: string[];
@@ -15,14 +15,14 @@ export const BetSelector: React.FC<BetSelectorProps> = ({
   setSelectedBet
 }) => {
   return (
-    <div className="betselector-styled">
+    <div className={styles.betselectorStyled}>
       {betOptions.map((option, idx) => {
         const isSelected = selectedBetOption === idx;
-        const selectedClass = isSelected ? 'selected' : '';
+        const selectedClass = isSelected ? styles.selected : '';
 
         return (
           <div
-            className={['bet-option', selectedClass].join(' ')}
+            className={[styles.betOption, selectedClass].join(' ')}
             key={idx}
             onClick={() => setSelectedBet(idx)}
           >

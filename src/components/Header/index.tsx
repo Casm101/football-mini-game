@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface HeaderProps {
   title: string;
@@ -11,13 +11,13 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ title, backButton, timeout = false }) => {
   const router = useRouter();
 
-  const backButtonClass = backButton ? '' : '--hidden';
-  const timerClass = timeout ? '' : '--hidden';
+  const backButtonClass = backButton ? '' : styles.hidden;
+  const timerClass = timeout ? '' : styles.hidden;
 
   return (
-    <header className="header-styled">
+    <header className={styles.headerStyled}>
       <button
-        className={['header-back', backButtonClass].join(' ').trim()}
+        className={[styles.headerBack, backButtonClass].join(' ').trim()}
         onClick={() => router.back()}
       >
         <svg
@@ -35,8 +35,8 @@ export const Header: React.FC<HeaderProps> = ({ title, backButton, timeout = fal
           />
         </svg>
       </button>
-      <h1 className="header-title">{title}</h1>
-      <div className={['header-timer', timerClass].join(' ').trim()}>Timer</div>
+      <h1 className={styles.headerTitle}>{title}</h1>
+      <div className={[styles.headerTimer, timerClass].join(' ')}>Timer</div>
     </header>
   );
 };

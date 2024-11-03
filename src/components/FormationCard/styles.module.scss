@@ -1,4 +1,4 @@
-.formation-styled {
+.formationStyled {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,16 +10,16 @@
 
   color: #E1EBF7;
 
-  .formation-name {
+  .formationName {
     font-size: 3rem;
   }
 
-  .formation-visual {
+  .formationVisual {
     border-radius: 1rem;
     overflow: hidden;
   }
 
-  .formation-stats {
+  .formationStats {
 
     .stat {
       display: flex;
@@ -28,7 +28,7 @@
 
       font-size: 1.75rem;
 
-      .stat-name {
+      .statName {
         font-family: "Rajdhani";
         font-weight: 600;
         text-transform: uppercase;
@@ -36,12 +36,12 @@
     }
   }
 
-  &.--selected {
+  &.selected {
     background: #D9D9D944;
     color: #FFD477;
   }
 
-  &.--clickable {
+  &.clickable {
     cursor: pointer;
   }
 }
