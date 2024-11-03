@@ -69,7 +69,7 @@ export default function Shootout() {
       {/* Timer component */}
       {!viewAnimation && (
         <div className="shootout-timer-overlay">
-          <Timer duration={15000} runOnEnd={ramdomPositionOnTimerEnd} />
+          <Timer duration={10000} runOnEnd={ramdomPositionOnTimerEnd} />
         </div>
       )}
 
